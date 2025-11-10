@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.Contato"
+             Title="Contato"
+             BackgroundColor="{StaticResource Gray100}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15" VerticalOptions="Start">
+
+            <!-- Título -->
+            <Label Text="Fale Conosco"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource Primary}"
+                   HorizontalOptions="Center" />
+
+            <!-- Informações de contato -->
+            <Frame Padding="15" BackgroundColor="White" CornerRadius="15" HasShadow="True">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Telefone: (14) 3451-1500" FontSize="16" />
+                    <Label Text="WhatsApp: (14) 99785-5260" FontSize="16" />
+                    <Label Text="E-mail: contato@hotelapp.com" FontSize="16" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Formulário de mensagem -->
+            <Label Text="Envie sua mensagem:" FontAttributes="Bold" />
+            
+            <Frame CornerRadius="10"
+                    Padding="5"
+                    BackgroundColor="White"
+                    HasShadow="True">
+                <Editor x:Name="edtMensagem"
+                   Placeholder="Escreva aqui..."
+                   AutoSize="TextChanges"
+                   BackgroundColor="Transparent"
+                   HeightRequest="100" />
+            </Frame>
+
+                <Button Text="Enviar Mensagem"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    CornerRadius="15"
+                    Clicked="BtnEnviar_Clicked" />
+
+            <Button Text="Voltar"
+                    BackgroundColor="{StaticResource White}"
+                    TextColor="{StaticResource Primary}"
+                    CornerRadius="15"
+                    Clicked="BtnVoltar_Clicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

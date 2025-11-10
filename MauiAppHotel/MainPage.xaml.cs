@@ -1,32 +1,30 @@
-﻿using MauiAppHotel.Views;
+﻿using System;
+using Microsoft.Maui.Controls;
 
 namespace MauiAppHotel
-{
-    public partial class MainPage : ContentPage
     {
-        int count = 0;
-
-        public MainPage()
+        public partial class MainPage : ContentPage
         {
-            InitializeComponent();
+            int count = 0;
+
+            public MainPage()
+            {
+                InitializeComponent();
+            }
+
+            // Abre a tela Sobre (Views.Sobre)
+            private async void OnSobreClicked(object sender, EventArgs e)
+            {
+                // Certifique-se de que a página Views.Sobre exista e o namespace esteja correto.
+                await Navigation.PushAsync(new Views.Sobre());
+            }
+
+
+            // Exemplo simples de contador para o botão "Click me"
+            private void OnCounterClicked(object sender, EventArgs e)
+            {
+                count++;
+                CounterBtn.Text = $"Você clicou {count} {(count == 1 ? "vez" : "vezes")}";
+            }
         }
-
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
-        private async void Button_Sobre_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Sobre());
-        }
-
     }
-
-}
